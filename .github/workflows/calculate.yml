@@ -1,1 +1,19 @@
+name: Calculate
+
+on:
+  workflow_dispatch:
+    inputs:
+      number:
+        description: 'Number to calculate'
+        required: true
+        type: integer
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run Calculation
+      run: |
+        python -c "print(${{ github.event.inputs.number }} ** 2)"
 
